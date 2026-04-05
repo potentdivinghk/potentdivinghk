@@ -3,172 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>潛能水下工程有限公司 | Potent Underwater Engineering Limited</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "潛能水下工程有限公司",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "九龍觀塘偉業街169號中懋工業大廈8樓B2室",
-        "addressLocality": "Kwun Tong",
-        "addressCountry": "HK"
-      },
-      "telephone": "+852-23922298",
-      "email": "potentdiving@gmail.com"
-    }
-    </script>
-
+    <title>潛能水底工程有限公司 | Potent Underwater Engineering Limited</title>
     <style>
+        /* PRO 級色彩系統與變數 */
         :root {
-            --primary: #003366;    /* 深海藍 */
-            --accent: #f39c12;     /* 安全橙 */
-            --light: #f8fafc;
-            --text: #2d3436;
+            --primary: #002244;      /* 企業深海藍 */
+            --primary-light: #003b73;
+            --accent: #FF8C00;       /* 工業安全橙 */
+            --bg-light: #f4f7f6;
+            --text-main: #2c3e50;
+            --text-muted: #5a6c7d;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; line-height: 1.8; color: var(--text); margin: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif; line-height: 1.8; color: var(--text-main); margin: 0; background-color: var(--white); }
 
-        /* 導覽列優化：白底以凸顯 Logo */
+        /* 導覽列 - 磨砂玻璃質感 */
         header { 
             background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(12px);
+            padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--primary);
         }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-box img { height: 55px; width: auto; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo-text .en { font-weight: 900; color: var(--primary); font-size: 1.2rem; letter-spacing: 1px; }
+        .logo-text .zh { font-weight: 600; color: var(--text-muted); font-size: 0.85rem; }
 
-        .logo-container img {
-            height: 70px; /* 根據 Logo 比例調整 */
-            width: auto;
-            display: block;
-        }
-
-        nav a { 
-            color: var(--primary); 
-            text-decoration: none; 
-            margin-left: 25px; 
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 0.95rem;
-        }
-
+        nav a { color: var(--primary); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); position: relative; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent); transition: var(--transition); }
+        nav a:hover::after { width: 100%; }
         nav a:hover { color: var(--accent); }
 
-        /* Hero 視覺區 */
+        /* 英雄區 (Hero Section) - 高畫質工業水下視覺 */
         .hero { 
-            background: linear-gradient(rgba(0,40,80,0.6), rgba(0,40,80,0.6)), 
-                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover; 
-            height: 65vh; color: white; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; padding: 0 20px; 
+            background: linear-gradient(rgba(0, 34, 68, 0.85), rgba(0, 34, 68, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1920') no-repeat center/cover; 
+            height: 70vh; min-height: 500px; color: var(--white); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-        .badge { background: var(--accent); color: var(--primary); padding: 8px 25px; border-radius: 50px; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+        .hero-label { background: var(--accent); color: var(--primary); padding: 6px 20px; border-radius: 50px; font-weight: 800; font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+        .hero h1 { font-size: 3.5rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.25rem; max-width: 800px; opacity: 0.9; margin-bottom: 30px; }
 
-        /* 內容區塊 */
-        .section { padding: 5rem 12%; }
-        .section h2 { border-left: 6px solid var(--accent); padding-left: 15px; color: var(--primary); margin-bottom: 40px; font-size: 2rem; }
+        /* 通用區塊設定 */
+        .section { padding: 6rem 10%; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary); margin: 0 0 15px 0; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--accent); bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 20px auto 0; }
+
+        /* 權威查證區塊 (Trust Center) */
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .trust-card { 
+            background: var(--white); border: 1px solid #e1e8ed; border-radius: 12px; padding: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: var(--transition);
+            display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden;
+        }
+        .trust-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary); transition: var(--transition); }
+        .trust-card:hover::before { background: var(--accent); }
+        .trust-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--primary); margin-top: 0; }
+        .trust-logo { height: 80px; object-fit: contain; margin-bottom: 25px; }
+        .trust-card h3 { color: var(--primary); font-size: 1.4rem; margin: 0 0 15px 0; }
+        .trust-details { text-align: left; width: 100%; background: var(--bg-light); padding: 20px; border-radius: 8px; margin-bottom: 25px; font-size: 0.95rem; }
+        .trust-details strong { color: var(--primary); }
+        
+        .btn-verify { 
+            background: var(--primary-light); color: var(--white); padding: 12px 25px; text-decoration: none; 
+            border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); width: 100%;
+        }
+        .btn-verify:hover { background: var(--accent); color: var(--primary); }
 
-        /* 工程案例清單 */
-        .project-list { list-style: none; padding: 0; }
-        .project-list li { margin-bottom: 15px; padding: 20px; background: var(--light); border-radius: 10px; border-left: 4px solid var(--accent); display: flex; align-items: center; }
-        .project-date { color: var(--accent); font-weight: 800; margin-right: 20px; min-width: 80px; }
+        /* 核心服務區塊 */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); transition: var(--transition); }
+        .service-card:hover { transform: translateX(10px); }
+        .service-card h3 { font-size: 1.3rem; color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .service-card p { color: var(--text-muted); margin-bottom: 0; }
+
+        /* 項目實績區塊 (Job Reference) */
+        .project-list { display: flex; flex-direction: column; gap: 20px; }
+        .project-item { 
+            background: var(--white); border: 1px solid #eaeaea; border-radius: 12px; padding: 30px; 
+            display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: center; transition: var(--transition);
+        }
+        .project-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: transparent; }
+        .project-client { font-size: 1.3rem; font-weight: 800; color: var(--primary); border-right: 2px solid var(--accent); padding-right: 20px; }
+        .project-desc { font-size: 1rem; color: var(--text-main); }
+        .project-tag { display: inline-block; background: var(--bg-light); color: var(--text-muted); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 10px; margin-right: 5px;}
 
         /* 頁尾 */
-        footer { background: #1a1a1a; color: #ddd; padding: 4rem 10%; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
-        .footer-grid b { color: var(--accent); }
+        footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 4rem 10% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; margin-bottom: 3rem; }
+        .footer-title { color: var(--accent); font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-info p { margin: 10px 0; display: flex; align-items: flex-start; gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; padding: 1rem; }
-            .logo-container img { height: 50px; margin-bottom: 15px; }
-            nav a { margin: 0 10px; font-size: 0.85rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-        }
+        @media (max-width: 992px) { .project-item { grid-template-columns: 1fr; } .project-client { border-right: none; border-bottom: 2px solid var(--accent); padding-bottom: 10px; padding-right: 0; } }
+        @media (max-width: 768px) { header { flex-direction: column; padding: 15px; } nav { margin-top: 15px; } nav a { margin: 0 10px; } .hero h1 { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-container">
-        <img src="https://lh3.googleusercontent.com/d/1U5rIfXRJ9h0nhdXOpy4gqsFqyty0M9fa" alt="潛能水下工程 Logo">
+    <div class="logo-box">
+        <img src="logo.png" alt="Potent Underwater Logo" onerror="this.src='https://via.placeholder.com/150x50?text=POTENT+LOGO'">
+        <div class="logo-text">
+            <span class="en">POTENT UNDERWATER</span>
+            <span class="zh">潛能水底工程有限公司</span>
+        </div>
     </div>
     <nav>
-        <a href="#about">關於我們</a>
-        <a href="#services">專業服務</a>
-        <a href="#projects">工程案例</a>
+        <a href="#credentials">資質查證</a>
+        <a href="#services">核心技術</a>
+        <a href="#projects">工程實績</a>
         <a href="#contact">聯絡我們</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h1>潛能水下工程有限公司</h1>
-    <p>專業潛水服務 | 水下機器人 (ROV) 科技 | 20載基建工程經驗</p>
-    <div class="badge">ADCI 國際潛水承包商協會通用會員</div>
+    <div class="hero-label">中電 (CLP) 及大型基建合資格承辦商</div>
+    <h1>深海技術 · 堅實工程</h1>
+    <p>深耕香港 20 載，我們提供國際級標準的商用潛水、實時水底監控 (IP Cam)、高壓清淤與濕式焊接方案。</p>
 </section>
 
-<section id="about" class="section">
-    <h2>公司簡介</h2>
-    <div style="font-size: 1.1rem; max-width: 900px;">
-        <p>潛能潛水工程公司成立於 1995 年，專注於海事工業項目。於 2021 年正式註冊為「潛能水下工程有限公司」。我們曾參與多項香港大型基建，包括汲水門大橋水下混凝土工程及各類發電廠維護。為了提升行業標準，我們引進了配備高壓噴射系統的水下機器人 (ROV)，致力於機械化作業以提升工業安全性。</p>
+<section id="credentials" class="section bg-light" style="background-color: var(--bg-light);">
+    <div class="section-header">
+        <h2>官方權威查證</h2>
+        <p>我們秉持絕對透明與誠信。所有國際認證均可透過第三方權威機構直接驗證，保障客戶每一項大型標案的安全與合規性。</p>
+    </div>
+    
+    <div class="trust-grid">
+        <div class="trust-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ISO_9001_Logo.svg/512px-ISO_9001_Logo.svg.png" alt="ISO 9001" class="trust-logo">
+            <h3>ISO 9001:2015 質量認證</h3>
+            <div class="trust-details">
+                <p><strong>登記企業：</strong> Potent Underwater Engineering Limited</p>
+                <p><strong>證書編號：</strong> No. 313 (IAS 國際認可機構)</p>
+                <p><strong>核准範圍：</strong> 涵蓋水底海事建設、電纜與管道安裝、水下切割與焊接 (Welding)、CCTV 檢查及水閘 (Penstock) 安裝工程。</p>
+            </div>
+            <a href="iso-cert.jpg" target="_blank" class="btn-verify">查看證書正本副本 (PDF/JPG)</a>
+        </div>
+
+        <div class="trust-card">
+            <img src="https://underwaterinvestigations.com/wp-content/uploads/2018/07/ADCI-logo.jpg" alt="ADCI" class="trust-logo">
+            <h3>ADCI 國際協會成員</h3>
+            <div class="trust-details">
+                <p><strong>協會全銜：</strong> Association of Diving Contractors International</p>
+                <p><strong>會員等級：</strong> General Member (通用會員)</p>
+                <p><strong>安全承諾：</strong> 作為國際商用潛水協會成員，潛能水底工程嚴格執行 ADCI Consensus Standards，確保最高等級的工業安全。</p>
+            </div>
+            <a href="https://www.adc-int.org/find-a-member" target="_blank" class="btn-verify">前往 ADCI 官網名單驗證 →</a>
+        </div>
     </div>
 </section>
 
-<section id="services" class="section" style="background: var(--light);">
-    <h2>專業服務範圍</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>水下檢查與清理</h3>
-            <p>專業處理箱涵 (Culverts)、水室 (Chambers) 及進水口淤泥清理。提供高解析度 CCTV 影像檢查與專業報告。</p>
+<section id="services" class="section">
+    <div class="section-header">
+        <h2>水下技術與解決方案</h2>
+    </div>
+    <div class="service-grid">
+        <div class="service-card">
+            <h3>⚙️ 水下切割與濕式焊接 (Welding)</h3>
+            <p>我們具備符合 ISO 認證規範的水下焊接資質。專注於發電廠機組導軌的翻修、水閘門 (Penstocks) 的密封結構加固與修補作業。</p>
         </div>
-        <div class="card">
-            <h3>水下安裝與維修</h3>
-            <p>安裝水閘門 (Penstocks)、擋水閘 (Stoplogs) 及導軌翻新。進行防波堤 (Fender) 檢查與結構補強維修。</p>
+        <div class="service-card">
+            <h3>🌊 箱涵清淤工程 (Desilting)</h3>
+            <p>針對龍鼓灘及青山發電廠的進水口箱涵 (Intake Culvert)，運用高壓設備與潛水專員進行深度淤泥清理，確保冷卻系統流量穩定。</p>
         </div>
-        <div class="card">
-            <h3>ROV 科技作業</h3>
-            <p>使用遠端操作機器人進行高壓水彈清洗、深海影像攝影及水下傳感器電纜支撐安裝，減少潛水員風險。</p>
+        <div class="service-card">
+            <h3>📹 實時監控系統佈署 (IP Camera)</h3>
+            <p>發電廠級別的水底監控方案。提供耐腐蝕支架設計、深水佈線，以及長效型 IP Camera 安裝，實現 24/7 不間斷的實時影像傳輸。</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section">
-    <h2>近期工程案例 (2024-2025)</h2>
-    <ul class="project-list">
-        <li><span class="project-date">2025.04</span> <div><b>黑角頭發電廠：</b> 補充冷卻水管 ROV IP Camera 供應與安裝。</div></li>
-        <li><span class="project-date">2025.03</span> <div><b>信德中心：</b> 海水進水口 CCTV 檢查及箱涵清理。</div></li>
-        <li><span class="project-date">2025.02</span> <div><b>青山發電廠：</b> B3 號機組導軌及水閘門密封工程。</div></li>
-        <li><span class="project-date">2025.01</span> <div><b>東薈城：</b> 海水泵房維修、濕井及箱涵清理作業。</div></li>
-        <li><span class="project-date">2024.09</span> <div><b>港珠澳大橋：</b> 污水處理廠膜組件 (Membrane) 更換工程。</div></li>
-    </ul>
+<section id="projects" class="section" style="background-color: var(--bg-light);">
+    <div class="section-header">
+        <h2>指標性工程實績</h2>
+        <p>Job References</p>
+    </div>
+    <div class="project-list">
+        
+        <div class="project-item">
+            <div class="project-client">中電龍鼓灘發電廠<br><span style="font-size:0.9rem; color:var(--text-muted); font-weight:normal;">Black Point Power Station</span></div>
+            <div class="project-desc">
+                於進水口箱涵 (Intake Culvert) 成功安裝實時 IP Camera 監控系統。包含水底精密佈線及耐腐蝕支架安裝，克服高流速環境，為電廠提供實時運作狀態監控。
+                <br>
+                <span class="project-tag">IP Camera 安裝</span> <span class="project-tag">實時監控系統</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-client">中電青山發電廠<br><span style="font-size:0.9rem; color:var(--text-muted); font-weight:normal;">Castle Peak Power Station</span></div>
+            <div class="project-desc">
+                執行 B1、B3 號機組導軌翻新、水閘門 (Penstocks) 密封維修及水底焊接補強工程。
+                <br>
+                <span class="project-tag">水下焊接 (Welding)</span> <span class="project-tag">導軌翻新</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-client">信德中心<br><span style="font-size:0.9rem; color:var(--text-muted); font-weight:normal;">Shun Tak Centre</span></div>
+            <div class="project-desc">
+                海水進水口 CCTV 全面檢查及大規模清淤 (Desilting) 作業，確保大廈水冷系統運作暢通。
+                <br>
+                <span class="project-tag">清淤 (Desilting)</span> <span class="project-tag">CCTV 檢查</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-client">港珠澳大橋<br><span style="font-size:0.9rem; color:var(--text-muted); font-weight:normal;">HZMB</span></div>
+            <div class="project-desc">
+                污水處理設施之核心膜組件 (Membrane) 水底精密更換與系統調試。
+                <br>
+                <span class="project-tag">精密設施更換</span> <span class="project-tag">水底機電</span>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <footer id="contact">
     <div class="footer-grid">
+        <div class="footer-info">
+            <div class="footer-title">POTENT UNDERWATER ENGINEERING LIMITED</div>
+            <p><strong>總部地址：</strong> 九龍觀塘偉業街169號中懋工業大廈8樓B2室</p>
+            <p><strong>工程諮詢：</strong> +852 2392 2298 / +852 9015 2573</p>
+            <p><strong>專案電郵：</strong> potentdiving@gmail.com</p>
+        </div>
         <div>
-            <h3 style="color:var(--accent); margin-top:0;">聯絡資訊</h3>
-            <p><b>地址：</b> 九龍觀塘偉業街169號中懋工業大廈8樓B2室</p>
-            <p><b>電話：</b> 2392-2298</p>
-            <p><b>手機：</b> 9015-2573 / 9046-9291</p>
-            <p><b>電郵：</b> potentdiving@gmail.com</p>
+            <div class="footer-title">企業資質</div>
+            <p style="margin-bottom: 5px;">✔ ISO 9001:2015 國際質量體系認證</p>
+            <p style="margin-bottom: 5px;">✔ ADCI 國際潛水承包商協會通用會員</p>
+            <p style="margin-bottom: 5px;">✔ IAS 認可核准供應商</p>
         </div>
-        <div style="text-align: right; border-left: 1px solid #444; padding-left: 30px;">
-            <p>© 2026 潛能水下工程有限公司<br><small>Potent Underwater Engineering Limited</small></p>
-            <p style="font-size: 0.8rem; opacity: 0.6;">專業、安全、卓越的水下工程專家</p>
-        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 潛能水底工程有限公司 版權所有 | Professional Commercial Diving & ROV Services in Hong Kong.
     </div>
 </footer>
 
